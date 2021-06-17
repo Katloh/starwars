@@ -1,0 +1,29 @@
+{
+  "name": "starwars",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Katloh/starwars.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Katloh/starwars/issues"
+  },
+  "homepage": "https://github.com/Katloh/starwars#readme",
+  "devDependencies": {
+    "jest": "^27.0.4",
+    "typescript": "^4.3.3"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^26.0.23",
+    "axios": "^0.21.1",
+    "ts-jest": "^27.0.3"
+  }
+}
