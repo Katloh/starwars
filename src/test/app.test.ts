@@ -1,6 +1,6 @@
 import {getStarwarsPeople, getStarwarsPeople2} from "../main/app";
 
-test("can call function", (done) => {
+test("lists all female Starwars Persons", (done) => {
     let listOfFemalePerson:string[] = new Array()
     getStarwarsPeople((persons) => {
         for (const person of persons) {
@@ -9,8 +9,8 @@ test("can call function", (done) => {
             }
         }
         done()
-        expect(listOfFemalePerson).toContain('Leia Organa')
-        expect(listOfFemalePerson).toContain('Beru Whitesun lars')
+        expect(listOfFemalePerson).toContain("Leia Organa")
+        expect(listOfFemalePerson).toContain("Beru Whitesun lars")
     });
 })
 
