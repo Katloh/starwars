@@ -25,28 +25,26 @@ export type Character = {
 }
 
 export async function getAllStarWarsPeople() {
-    let listOfStarWarsPeopleOfPage: Character[] = new Array()
-    let listOfAllStarWarsPeople: Character[] = new Array()
+    let allCharacters: Character[] = new Array()
 
     do{
-        let data: StarWarsPeoplePage = (await axios.get<StarWarsPeoplePage>(url)).data
-        listOfStarWarsPeopleOfPage = data.results
-        listOfAllStarWarsPeople.push(...listOfStarWarsPeopleOfPage)
+        let data = (await axios.get<StarWarsPeoplePage>(url)).data
+        allCharacters.push(...data.results)
         url = data.next
     } while (url !== null)
 
-    return listOfAllStarWarsPeople
+    return allCharacters
 }
 
 export async function getAllFemaleStarWarsPeople():Promise<Character[]> {
-    let listOfAllFemaleStarWarsPeople: Character[] = new Array()
-    let listOfAllStarWarsPeople:Character[] = await getAllStarWarsPeople()
-    for(const person of listOfAllStarWarsPeople){
+    let femaleCharacters: Character[] = new Array()
+    let allCharacters:Character[] = await getAllStarWarsPeople()
+    for(const person of allCharacters){
         if(person.gender === "female"){
-            listOfAllFemaleStarWarsPeople.push(person)
+            femaleCharacters.push(person)
         }
     }
-    return listOfAllFemaleStarWarsPeople
+    return femaleCharacters
 }
 
 
