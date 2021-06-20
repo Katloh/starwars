@@ -18,11 +18,9 @@ export class StarWarsStore{
     public async getAllFemaleStarWarsPeople():Promise<Character[]> {
         let femaleCharacters: Character[] = new Array()
         let allCharacters:Character[] = await this.starWarsApi.getAllStarWarsPeople()
-        for(const person of allCharacters){
-            if(person.gender === "female"){
-                femaleCharacters.push(person)
-            }
-        }
+        femaleCharacters = allCharacters.filter((chararacter) => {
+          return(chararacter.gender === "female")
+        })
         return femaleCharacters
     }
 }
