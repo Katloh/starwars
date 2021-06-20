@@ -1,12 +1,12 @@
 import axios from "axios";
-import {Character} from "./starWars.store";
+import {Character, FetchesStarWarsCharacters} from "./starWars.store";
 
 type StarWarsPeoplePage = {
     next: string
     results: Character[]
 }
 
-export class StarWarsApi{
+export class StarWarsApi implements FetchesStarWarsCharacters{
     private url:string = "https://swapi.dev/api/people"
 
     getStarwarsPeople(callback: any) {

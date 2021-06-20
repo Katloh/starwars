@@ -1,15 +1,17 @@
-import {StarWarsApi} from "./starWars.api";
-
 export type Character = {
     name: string
     gender: string
 }
 
+export interface FetchesStarWarsCharacters{
+    getAllStarWarsPeople: () => Promise<Character[]>
+}
+
 export class StarWarsStore{
 
-    private starWarsApi: StarWarsApi
+    private starWarsApi: FetchesStarWarsCharacters
 
-    constructor(starWarsApi: StarWarsApi) {
+    constructor(starWarsApi: FetchesStarWarsCharacters) {
         this.starWarsApi = starWarsApi
     }
 

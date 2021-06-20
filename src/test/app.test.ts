@@ -2,6 +2,7 @@ import {
     Character, StarWarsStore
 } from "../main/starWars.store";
 import {StarWarsApi} from "../main/starWars.api";
+import {TestStarWarsApi} from "../main/TestStarWars.api";
 
 test("lists all female Starwars Persons", (done) => {
     let listOfFemalePerson:string[] = new Array()
@@ -25,10 +26,10 @@ test("returns 82 people", async ()=> {
 })
 
 test("list all female Starwars People", async ()=> {
-    const NUMBER_OF_ALL_FEMALE_CHARACTERS_IN_STARWARS = 17
+    const NUMBER_OF_ALL_FEMALE_CHARACTERS_IN_STARWARS = 1
     let femaleCharacters: Character[] = new Array()
-    const starWarsApi = new StarWarsApi()
-    const starWarsStore = new StarWarsStore(starWarsApi)
+    const testStarWarsApi = new TestStarWarsApi()
+    const starWarsStore = new StarWarsStore(testStarWarsApi)
     femaleCharacters = await starWarsStore.getAllFemaleStarWarsPeople()
     expect(femaleCharacters.length).toStrictEqual(NUMBER_OF_ALL_FEMALE_CHARACTERS_IN_STARWARS)
     for(const femaleCharacter of femaleCharacters){
