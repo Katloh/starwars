@@ -10,10 +10,6 @@ export function getStarwarsPeople(callback: any) {
     })
 }
 
-export async function getStarwarsPeople2() {
-    return (await axios.get(url)).data.results
-}
-
 type StarWarsPeoplePage = {
     next: string
     results: Character[]
